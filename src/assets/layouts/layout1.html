@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="preload" href="/assets/css/v1-theme.css" as="style"/>
+    <link rel="stylesheet" href="/assets/css/v1-theme.css">
+    <link rel="alternate" href="{{ metadata.feed.path }}" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="alternate" href="{{ metadata.jsonfeed.path }}" type="application/json" title="{{ metadata.title }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(["disableCookies"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.whosane.dev/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <noscript><p><img src="//analytics.whosane.dev/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  </head>
+  <body>
+    <div id="loadOverlay" style="background-color:#fff; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+    <div class="container">
+      <header>
+        <a class="no-underline" href="/" title="Hossein Margani Home Page"><img alt="Hossein Margani Profile Picture" class="logo" src="/assets/img/me.jpeg" width="64" height="64"/></a>
+        <nav id="top-nav">
+          <label for="toggle">&#9776;</label>
+          <input type="checkbox" id="toggle"/>
+          <ul id="top-menu">
+            {% for entryName, entryMatter in pages %}
+              {%- if entryMatter.navigation -%}
+                <li class="nav-item">
+                  {%- if entryMatter.navigation.key -%}
+                    <a href="{{ entryMatter.url }}">{{ entryMatter.navigation.key }}</a>
+                  {%- else -%}
+                    <a href="{{ entryMatter.url }}">{{  entryMatter.title }}</a>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+            {% endfor %}
+            <li class="icon">
+              <a href="https://twitter.com/hmrdev" title="Hossein Margani Twitter Account">
+                <i class="uil uil-twitter"></i>
+              </a>
+            </li>
+            <li class="icon">
+              <a href="https://www.linkedin.com/in/hosseinmargani/" title="Hossein Margani Linkedin Account">
+                <i class="uil uil-linkedin"></i>
+              </a>
+            </li>
+            <li class="icon">
+              <a href="https://github.com/margani" title="Hossein Margani Github Account">
+                <i class="uil uil-github"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>
+      </header>
+      <main class="container">
+        {{- content | safe -}}
+      </main>
+      {#- <footer></footer> -#}
+    </div>
+  </body>
+</html>

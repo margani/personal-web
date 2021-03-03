@@ -1,0 +1,48 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+header,
+footer,
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.flex-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.flex-col-33 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.flex-col-66 {
+  -ms-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.flex-col-25 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.flex-col-75 {
+  -ms-flex: 0 0 70%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.clearfix::after {
+  display: block;
+  content: '';
+  clear: both;
+}

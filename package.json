@@ -1,0 +1,27 @@
+{
+  "name": "artan-ssg-margani-dev",
+  "version": "1.0.0",
+  "description": "My personal website using Artan Static Site Generator.",
+  "main": "build.js",
+  "scripts": {
+    "generate-samples": "node ./generate-samples.js",
+    "serve": "node build.js && http-server dist -c-1",
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/margani/personal-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/margani/personal-web/issues"
+  },
+  "homepage": "https://github.com/margani/personal-web#readme",
+  "devDependencies": {
+    "artan-ssg": "^0.1.5",
+    "http-server": "^0.12.3",
+    "lorem-ipsum": "^2.0.3"
+  }
+}
