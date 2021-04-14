@@ -1,4 +1,4 @@
-header,
+/* header,
 footer {
   height: 900px;
   background-color: #eaeaea;
@@ -8,4 +8,18 @@ footer {
 
 .sidebar {
   background-color: #e5e5e5;
+} */
+
+.blog-posts h2 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+.blog-posts .entry-date {
+  color: #888;
+  margin-right: 15px;
 }

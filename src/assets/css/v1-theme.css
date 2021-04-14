@@ -1,7 +1,7 @@
 @import url('/src/assets/css/v1-typography.css');
 @import url('/src/assets/css/v1-generic.css');
 @import url('/src/assets/css/v1-sidebar.css');
-@import url('/src/assets/css/samples.css');
+@import url('/src/assets/css/v1-site.css');
 
 .container {
   padding: 0 5px;
