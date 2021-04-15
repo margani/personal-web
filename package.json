@@ -5,8 +5,8 @@
   "main": "build.js",
   "scripts": {
     "generate-samples": "node ./generate-samples.js",
-    "serve": "light-server -s dist",
-    "serve-watch": "light-server -s dist -w 'src/** # npm run build # reload'",
+    "serve": "npm run build && light-server -s dist",
+    "serve-watch": "npm run build && light-server -s dist -w 'src/** # npm run build # reload'",
     "build": "node build.js"
   },
   "repository": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/margani/personal-web#readme",
   "devDependencies": {
-    "artan-ssg": "^0.1.5",
+    "artan-ssg": "^0.1.33",
     "light-server": "^2.9.1",
     "lorem-ipsum": "^2.0.3"
   }

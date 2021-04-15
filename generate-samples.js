@@ -3,7 +3,6 @@ const path = require("path");
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 const rimraf = require("rimraf");
 const slug = require("slug");
-const { createDirectory } = require("./utils");
 
 const targetFolder = "./src/samples";
 const numberOfFolders = 5;
@@ -19,6 +18,12 @@ const lorem = new LoremIpsum({
     min: 4,
   },
 });
+
+const createDirectory = function (folderPath) {
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+  }
+};
 
 rimraf.sync(targetFolder);
 var pageSlugs = [];
@@ -62,7 +67,7 @@ type: samples
 
 function randomDate(start, end, startHour, endHour) {
   var date = new Date(+start + Math.random() * (end - start));
-  var hour = startHour + Math.random() * (endHour - startHour) | 0;
+  var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
   date.setHours(hour);
   return date;
 }

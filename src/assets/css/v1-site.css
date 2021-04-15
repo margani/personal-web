@@ -1,4 +1,4 @@
-header,
+/* header,
 footer {
   height: 900px;
   background-color: #eaeaea;
@@ -8,4 +8,32 @@ footer {
 
 .sidebar {
   background-color: #e5e5e5;
+} */
+
+.blog-posts h2 {
+  font-size: 2.17em;
+  line-height: 4rem;
+}
+
+.blog-posts .entry-date {
+  color: #888;
+  margin-right: 15px;
+  font-size: 1.8rem;
+  float: right;
+  line-height: 4rem;
+}
+
+.blog-posts .pagination {
+  height: 6rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-posts .pagination .older {
+  float: right;
+}
+
+.blog-posts .pagination .newer {
+  float: left;
 }

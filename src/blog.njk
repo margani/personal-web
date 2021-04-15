@@ -1,0 +1,38 @@
+---
+slug: "/blog/{{ '' if pageNumber <= 1 else ['/', pageNumber, '/'] | join }}"
+title: My blog
+description: Hossein Margani's Blog
+layout: layout1
+type: page
+define:
+    pageNumber: blogPosts.pageNumber
+    pageSize: blogPosts.pageSize
+pagination:
+    - from: pages | filterPagesByType('blog-post') | sortPagesByDate
+      alias: blogPosts
+---
+<h1>My blog</h1>
+<div class='blog-posts'>
+  {%- for entry in blogPosts.data %}
+    <div>
+      <h2>
+        {%- if entry.data.date -%}
+          <small class='entry-date'>{{ entry.data.date | dateFormat("MMM DD, YYYY") }}</small>
+        {%- endif -%}
+        <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+      </h2>
+    </div>
+  {%- endfor %}
+  <ul class="pagination text-center">
+    {% if blogPosts.prevPageNumber %}
+      <li class='newer'>
+        <a href="/blog/{{ '' if blogPosts.prevPageNumber <= 1 else [blogPosts.prevPageNumber, '/'] | join }}">Newer</a>
+      </li>
+    {% endif %}
+    {% if blogPosts.nextPageNumber %}
+      <li class='older'>
+        <a href="/blog/{{ blogPosts.nextPageNumber }}/">Older</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>

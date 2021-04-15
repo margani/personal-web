@@ -11,7 +11,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path }}" type="application/json" title="{{ metadata.title }}">
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
     <script async defer data-domain="margani.dev" src="https://analytics.whosane.dev/js/plausible.js"></script>
   </head>
   <body>
@@ -23,17 +23,11 @@
           <label for="toggle">&#9776;</label>
           <input type="checkbox" id="toggle"/>
           <ul id="top-menu">
-            {% for entryName, entryMatter in pages %}
-              {%- if entryMatter.navigation -%}
-                <li class="nav-item">
-                  {%- if entryMatter.navigation.key -%}
-                    <a href="{{ entryMatter.url }}">{{ entryMatter.navigation.key }}</a>
-                  {%- else -%}
-                    <a href="{{ entryMatter.url }}">{{  entryMatter.title }}</a>
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-            {% endfor %}
+            {# <li>
+              <a href="/blog/" title="Hossein Margani's Blog">
+                iWrite
+              </a>
+            </li> #}
             <li class="icon">
               <a href="https://twitter.com/hmrdev" title="Hossein Margani Twitter Account">
                 <i class="uil uil-twitter"></i>
@@ -54,7 +48,9 @@
         <div class="clearfix"></div>
       </header>
       <main class="container">
-        {{- content | safe -}}
+
+        {{ content | safe -}}
+
       </main>
       {#- <footer></footer> -#}
     </div>
