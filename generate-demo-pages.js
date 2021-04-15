@@ -4,7 +4,7 @@ const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 const rimraf = require("rimraf");
 const slug = require("slug");
 
-const targetFolder = "./src/samples";
+const targetFolder = "./src/demo-pages";
 const numberOfFolders = 5;
 const numberOfPages = 7;
 const numberOfSections = 10;
@@ -48,7 +48,7 @@ date: ${randomDate(new Date(2010, 0, 1), new Date(), 8, 20).toISOString()}
 tags:
   - ${lorem.generateWords(1)}
   - ${lorem.generateWords(1)}
-type: samples
+type: demo
 ---\n`;
     pageContent += `# ${lorem.generateSentences(1)}\n\n`;
     pageContent += lorem.generateParagraphs(2);
