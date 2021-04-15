@@ -2,12 +2,6 @@
 title: Hossein Margani, Software Engineer | Personal Website
 description: a software engineer based in London, UK. specializing in building high-quality websites and applications.
 layout: layout1
-navigation:
-    key: Home
-    order: 1
-tags:
-    - tag 1
-    - tag 2
 type: page
 ---
 # Hi, I’m Hossein
