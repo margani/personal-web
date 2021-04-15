@@ -2,11 +2,11 @@
   "name": "artan-ssg-margani-dev",
   "version": "1.0.0",
   "description": "My personal website using Artan Static Site Generator.",
-  "main": "build.js",
+  "main": "index.js",
   "scripts": {
     "serve": "npm run build && light-server -s dist",
     "serve-watch": "npm run build && light-server -s dist -w 'src/** # npm run build # reload'",
-    "build": "node build.js"
+    "build": "node ."
   },
   "repository": {
     "type": "git",
