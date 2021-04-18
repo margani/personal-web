@@ -8,7 +8,7 @@ define:
     pageNumber: blogPosts.pageNumber
     pageSize: blogPosts.pageSize
 pagination:
-    - from: pages | filterPagesByType('blog-post') | sortPagesByDate
+    - from: pages | filterPagesByType('post') | sortPagesByDate
       alias: blogPosts
 ---
 <h1>My blog</h1>
