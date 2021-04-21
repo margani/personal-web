@@ -43,7 +43,7 @@ for (var folderIndex = 0; folderIndex < numberOfFolders; folderIndex++) {
 
     var pageContent = `---
 title: ${lorem.generateSentences(1)}
-layout: layout1
+layout: main
 date: ${randomDate(new Date(2010, 0, 1), new Date(), 8, 20).toISOString()}
 tags:
   - ${lorem.generateWords(1)}
