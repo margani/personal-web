@@ -111,6 +111,11 @@ header {
   margin-top: 15px;
 }
 
+footer p {
+  text-align: center;
+  color: #777
+}
+
 .uil {
   font-size: 3rem;
 }
