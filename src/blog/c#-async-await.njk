@@ -1,0 +1,116 @@
+---
+slug: '/async-await-csharp/'
+title: "Async/Await in C# (Quick HowTo)"
+description: A short introduction on using await and async
+    for asynchronous programming in C#. Sometimes you know the concept but have forgotten the correct syntax and the best practices.
+layout: layout1
+date: 2021-04-21
+type: post
+---
+<h1>Async/Await in C# - A quick how to</h1>
+
+Using asynchronous programming in C#, you can improve your application's responsiveness by
+avoiding the activities which are blocked in a synchronous operation.
+This post will explain in short so you will understand how to use Async and Await keywords in C#.
+
+Assume you go to a coffee shop and order coffee with cake.
+
+Here are the list of thing that a worker needs to do:
+
+1. Accept the order and payment, takes **3 minutes**
+2. Make the coffee, and put it on a tray, takes **5 minutes**
+3. Put a slice of cake you have ordered and put it on the tray, takes **1 minutes**
+
+## Synchronous
+
+In a synchronous world, it's like the coffee shop has only one staff and has to work on the tasks one after another.
+Here it takes **9 minutes** for the worker to complete all abive three tasks.
+
+```csharp
+namespace Demo
+{
+    public class CoffeeShop
+    {
+        public const int MIN = 60 * 60 * 1000
+        public void AcceptPayment()         => Thread.Sleep(3 * MIN);
+        public void MakeCoffee()            => Thread.Sleep(5 * MIN);
+        public void PrepareSliceOfCake()    => Thread.Sleep(1 * MIN);
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            var shop = new CoffeeShop();
+            shop.AcceptPayment();
+            shop.MakeCoffee();
+            shop.PrepareSliceOfCake();
+        }
+    }
+}
+```
+
+## Asynchronous
+
+But if we use asynchronous programming, we can me it less.
+
+```csharp
+using System.Threading.Tasks;
+namespace Demo
+{
+    public class CoffeeShop
+    {
+        ...
+        public async Task AcceptPayment()       => await Task.Delay(3 * MIN);
+        public async Task MakeCoffee()          => await Task.Delay(5 * MIN);
+        public async Task PrepareSliceOfCake()  => await Task.Delay(1 * MIN);
+        ...
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            var shop = new CoffeeShop();
+            var acceptPaymentTask = shop.AcceptPayment();
+            var makeCoffeeTask = shop.MakeCoffee();
+            var prepareSliceOfCake = shop.PrepareSliceOfCake();
+
+            Task.WaitAll(acceptPaymentTask, makeCoffeeTask, prepareSliceOfCake);
+        }
+    }
+}
+```
+
+We changed the return types of the functions from `void` to `async Task` and used `Task.WaitAll` to wait for all the task to complete so we can drink our coffee with the slice of cake.
+
+### Using await in Main needs async Main
+
+We may want to have the coffee even if without the cake, because we are thirsty?
+
+```csharp
+    ...
+        static async Task Main()
+        {
+            var shop = new CoffeeShop();
+            var acceptPaymentTask = shop.AcceptPayment();
+            var makeCoffeeTask = shop.MakeCoffee();
+
+            Task.WaitAll(acceptPaymentTask, makeCoffeeTask);
+
+            // Drink the coffee while waiting for...
+
+            await shop.PrepareSliceOfCake();
+
+            // The cake is ready :yum:
+        }
+    ...
+```
+
+You can see we had to add `async Task` to the `Main` method as well, because we are using await keyword inside it.
+
+## Conclusion
+
+This post was a quick introduction to using async/await in C# which I hope it was helpful.
+Parallel tasks are still tasks and needs to be done in the same time as the synchronous tasks,
+but running them asynchronously helps us getting the coffee sooner if we are thristy. :)
