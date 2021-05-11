@@ -11,6 +11,13 @@ generator.generate(
     sampleFilter: function (data) {
       return "nothing";
     },
+    domain: function (url, withScheme) {
+      var urlInfo = new URL(url);
+      if (withScheme) {
+        return urlInfo.origin;
+      }
+      return urlInfo.host;
+    },
   },
   {
     sample: function (data) {
