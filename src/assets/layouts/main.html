@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="preload" href="/assets/css/v1-theme.css" as="style"/>
-    <link rel="stylesheet" href="/assets/css/v1-theme.css">
     <link rel="alternate" href="{{ metadata.feed.path }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path }}" type="application/json" title="{{ metadata.title }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    {%- set styleUrls = ["/assets/css/v1-theme.css", "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"] -%}
+    {%- for styleUrl in styleUrls -%}
+    <link rel="preload" as="style" href="{{ styleUrl }}"/>
+    <link rel="stylesheet" href="{{ styleUrl }}" media="print" onload="this.media='all'"/>
+    <noscript><link rel="stylesheet" href="{{ styleUrl }}"/></noscript>
+    {% endfor -%}
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/cascadia-code">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/tomorrow.min.css">
-    <link href="https://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
     <script async defer data-domain="margani.dev" src="https://analytics.whosane.dev/js/plausible.js"></script>
   </head>
   <body>
