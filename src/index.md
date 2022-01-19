@@ -29,4 +29,4 @@ Also, as a DevOps engineer I have worked with the following technologies:
 * Vagrant
 * F5 BIG-IP
 
-If you’d like to get in touch, you can send an email to hossein@margani.dev. A current CV is available on request.
+If you’d like to get in touch, you can send an email to hossein@margani.dev or <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/margani'});return false;">schedule time with me</a>. A current CV is available on request.
