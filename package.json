@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/margani/personal-web#readme",
   "devDependencies": {
-    "artan-ssg": "^0.1.36",
+    "artan-ssg": "^0.1.39",
     "light-server": "^2.9.1",
-    "lorem-ipsum": "^2.0.3"
+    "lorem-ipsum": "^2.0.4"
   }
 }
